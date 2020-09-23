@@ -148,7 +148,7 @@ function Words(string)
 Words.prototype[Symbol.iterator] = function ()
 {
   var i =0;
-  const words = this.str.split(/\s/);
+  const words = this.str.split(/(\w+ )/);
   return {
     next:
     function ()
@@ -169,16 +169,108 @@ Words.prototype[Symbol.iterator] = function ()
   }
   
 }
+// const helloWord = new Words("Hello Mamama ma");
+
+// for(let word of helloWord)
+// {
+//   console.log(word);
+// }
 
 
-const helloWord = new Words("Hello Mamama ma");
+// Challenge 7
+// Build a function that walks through an array and returns the element concatenated with the string "was found after index x", where x is the previous index.
+// Note: if it is the first element it should say that it is the first
 
-for(let word of helloWord)
+
+
+function valueAndPrevIndex(array)
 {
-  console.log(word);
+    let i=0;
+  const iterator = {
+      sentence: 
+      function () 
+      {
+        if(i==0)
+        {
+        
+       return `${array[i++]} is first`;
+       
+        }
+        else
+        {
+        
+         return  `${array[i]} is on position ${i++}`;
+          
+        }
+      
+      }
+  }
+    return iterator;
 }
 
 
+// const returnedSentence = valueAndPrevIndex([4,5,6])
+// console.log(returnedSentence.sentence());
+// console.log(returnedSentence.sentence());
+// console.log(returnedSentence.sentence());
+
+
+
+//generators part
+// Challenge 8
+// Write a function that will console.log "hello there", or "gibberish", every three seconds depending on if the word passed into the function is 'english'.
+// Do not use any type of loop constructor and only make the call to createConversation once.
+
+
+function *createConversation(string)
+{
+    if(string == 'english')
+    {
+       yield setTimeout(()=>console.log("HelloWirld"), 3000);
+    }
+    else
+    {
+             yield setTimeout(()=>console.log("grab"), 3000);
+    }
+}
+
+
+console.log(createConversation('english').next());
+
+
+///program to create an asyncAwait from scrach
+
+//generator function which will return 
+// the fetch result firstly, after will fill the data result with the flow which come for promisefunction (returnRealData)
+function *getData()
+{
+  const data = yield fetch("https://site.name");
+  
+  console.log("Data");
+}
+function returnRealData(value)
+{
+  returnNext.next(value);
+}
+const returnNext = getData();
+const futureData = returnNext.next();
+
+futureData.then(returnRealData);
+
+
+//the same functionality  provided by async/await
+
+
+async function createFlow()
+{
+  console.log("Hi");
+  const data = await fetch("https://site.name");
+  console.log(data);
+  
+}
+
+createFlow();
+console.log("Hi2");
 
 
 
