@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+}
+
+.main-box{
+    width: 25%;
+}
+
+.input-data{
+    background-color: black;
+    color: white;
+    width: 100%;
+    text-align: right;
+
+}
+.div-row{
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    justify-content: space-between;
+}
+button{
+    width: 100%;
+}
+.button-4:last-child{
+    background-color: chocolate;
+    color: white;
+}
+.button-4:hover{
+    background-color: burlywood;
+    cursor: pointer;
+}
+.button-4:active{
+    background-color: blueviolet;
+}
+.button-3:last-child{
+    background-color: chocolate;
+    color: white;
+
+}
+.button-3:hover{
+    background-color: burlywood;
+    cursor: pointer;
+}
+.button-3:active{
+    background-color: blueviolet;
+}
+
+
+
+
+
