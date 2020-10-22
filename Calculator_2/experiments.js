@@ -90,7 +90,7 @@ function init()
 
 
        })
-   }, '..\\Calculator\\buttons.json');
+   }, '..\\Calculator_2\\buttons.json');
     document.querySelector(".input-data").value = "0";
     document.querySelector(".main-box").addEventListener("click",
         function (event){
